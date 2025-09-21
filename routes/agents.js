@@ -9,6 +9,9 @@ const HeadOfEngineeringAgent = require('../agents/HeadOfEngineeringAgent');
 const db = require('../database/setup');
 
 // Initialize agents
+console.log('🔑 [DEBUG] CLAUDE_API_KEY exists:', !!process.env.CLAUDE_API_KEY);
+console.log('🔑 [DEBUG] CLAUDE_API_KEY length:', process.env.CLAUDE_API_KEY?.length || 0);
+console.log('🔑 [DEBUG] CLAUDE_API_KEY starts with sk-ant:', process.env.CLAUDE_API_KEY?.startsWith('sk-ant') || false);
 const ceoAgent = new CEOAgent(process.env.CLAUDE_API_KEY);
 const researchAgent = new ResearchAgent(process.env.CLAUDE_API_KEY);
 const productAgent = new ProductAgent(process.env.CLAUDE_API_KEY);
