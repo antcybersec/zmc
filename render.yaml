@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bolt-diy
+    env: node
+    buildCommand: cd bolt.diy-main && pnpm install --frozen-lockfile
+    startCommand: cd bolt.diy-main && pnpm dev
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5173
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: VITE_PUBLIC_APP_URL
+        value: https://bolt-diy.onrender.com
