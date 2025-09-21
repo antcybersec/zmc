@@ -46,3 +46,13 @@ class ClaudeAgent {
 }
 
 module.exports = ClaudeAgent;
+  }
+}
+
+module.exports = ClaudeAgent;
+
+  }
+}
+
+module.exports = ClaudeAgent;
+

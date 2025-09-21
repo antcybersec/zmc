@@ -1,7 +1,0 @@
-{
-  "buildCommand": "pnpm install --frozen-lockfile",
-  "outputDirectory": "build/client",
-  "framework": "remix",
-  "installCommand": "pnpm install",
-  "devCommand": "pnpm dev"
-}

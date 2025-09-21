@@ -46,3 +46,9 @@ app.listen(PORT, () => {
   console.log(`🔑 [SERVER] CLAUDE_API_KEY exists: ${!!process.env.CLAUDE_API_KEY}`);
   console.log(`🔑 [SERVER] CLAUDE_API_KEY length: ${process.env.CLAUDE_API_KEY?.length || 0}`);
 });
+
+  console.log(`🔑 [SERVER] CLAUDE_API_KEY length: ${process.env.CLAUDE_API_KEY?.length || 0}`);
+});
+
+  console.log(`🔑 [SERVER] CLAUDE_API_KEY length: ${process.env.CLAUDE_API_KEY?.length || 0}`);
+});
