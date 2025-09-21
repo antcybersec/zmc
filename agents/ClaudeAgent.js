@@ -10,6 +10,11 @@ class ClaudeAgent {
 
   async generateResponse(prompt, maxTokens = 1000) {
     try {
+      console.log(`🔑 [${this.name}] API Key length: ${this.apiKey?.length || 0}`);
+      console.log(`🔑 [${this.name}] API Key starts with sk-ant: ${this.apiKey?.startsWith('sk-ant') || false}`);
+      console.log(`🔑 [${this.name}] API Key first 20 chars: ${this.apiKey?.substring(0, 20) || 'undefined'}`);
+      console.log(`🔑 [${this.name}] Model: ${this.model}`);
+      
       const response = await axios.post('https://api.anthropic.com/v1/messages', {
         model: this.model,
         max_tokens: maxTokens,
