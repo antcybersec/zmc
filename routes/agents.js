@@ -462,6 +462,21 @@ router.post('/bolt-prompt/:ideaId', async (req, res) => {
   }
 });
 
+// Test API key endpoint
+router.get('/test-api-key', (req, res) => {
+  const apiKey = process.env.CLAUDE_API_KEY;
+  res.json({
+    success: true,
+    apiKey: {
+      exists: !!apiKey,
+      length: apiKey?.length || 0,
+      startsWithSkAnt: apiKey?.startsWith('sk-ant') || false,
+      first20Chars: apiKey?.substring(0, 20) || 'undefined',
+      last20Chars: apiKey?.substring(-20) || 'undefined'
+    }
+  });
+});
+
 // Get agent activities
 router.get('/activities', (req, res) => {
   db.all('SELECT * FROM agent_activities ORDER BY created_at DESC LIMIT 50', (err, activities) => {
