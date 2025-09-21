@@ -17,8 +17,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-
 // Import routes
 const agentRoutes = require('./routes/agents');
 const ideaRoutes = require('./routes/ideas');
@@ -33,6 +31,9 @@ app.use('/api/agents', agentRoutes);
 app.use('/api/ideas', ideaRoutes);
 app.use('/api/tokens', tokenRoutes);
 app.use('/api/finance', financeRoutes);
+
+// Serve static files from React app build
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Serve React app
 app.get('*', (req, res) => {
