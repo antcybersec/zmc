@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "backend-api",
-      "repo": "ai-company-avalanche",
+      "repo": "zmc",
       "buildCommand": "npm install",
       "startCommand": "npm start",
       "rootDirectory": ".",
@@ -20,8 +20,8 @@
     },
     {
       "name": "frontend",
-      "repo": "ai-company-avalanche",
-      "buildCommand": "cd client && npm install && npm run build",
+      "repo": "zmc",
+      "buildCommand": "npm install && cd client && npm install && npm run build",
       "startCommand": "cd client && npx serve -s build -l 3000",
       "rootDirectory": ".",
       "environmentVariables": {
@@ -33,9 +33,9 @@
     },
     {
       "name": "bolt-diy",
-      "repo": "ai-company-avalanche",
-      "buildCommand": "cd bolt.diy-main && pnpm install && pnpm build",
-      "startCommand": "cd bolt.diy-main && pnpm start",
+      "repo": "zmc",
+      "buildCommand": "cd bolt.diy-main && pnpm install",
+      "startCommand": "cd bolt.diy-main && pnpm dev",
       "rootDirectory": ".",
       "environmentVariables": {
         "NODE_ENV": "production",
