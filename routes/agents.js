@@ -497,6 +497,46 @@ router.get('/test-api-key', (req, res) => {
   });
 });
 
+// Test Claude API directly
+router.get('/test-claude-api', async (req, res) => {
+  const axios = require('axios');
+  const apiKey = process.env.CLAUDE_API_KEY;
+  
+  try {
+    console.log('🔑 [CLAUDE_TEST] Testing Claude API directly...');
+    console.log('🔑 [CLAUDE_TEST] API Key length:', apiKey?.length);
+    console.log('🔑 [CLAUDE_TEST] API Key starts with sk-ant:', apiKey?.startsWith('sk-ant'));
+    
+    const response = await axios.post('https://api.anthropic.com/v1/messages', {
+      model: 'claude-3-haiku-20240307',
+      max_tokens: 100,
+      messages: [
+        {
+          role: 'user',
+          content: 'Hello, this is a test message.'
+        }
+      ]
+    }, {
+      headers: {
+        'x-api-key': apiKey,
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01'
+      }
+    });
+    
+    console.log('🔑 [CLAUDE_TEST] Claude API response:', response.data);
+    res.json({ success: true, response: response.data });
+    
+  } catch (error) {
+    console.error('🔑 [CLAUDE_TEST] Claude API error:', error.response?.data || error.message);
+    res.json({ 
+      success: false, 
+      error: error.response?.data || error.message,
+      status: error.response?.status
+    });
+  }
+});
+
 // Get agent activities
 router.get('/activities', (req, res) => {
   db.all('SELECT * FROM agent_activities ORDER BY created_at DESC LIMIT 50', (err, activities) => {
