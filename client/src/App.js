@@ -54,7 +54,7 @@ function App() {
     setAgentActivity(prev => [...prev, { agent: 'CEO Agent', action: 'Generating new business idea...', time: new Date().toLocaleTimeString() }]);
     
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://zmc-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/agents/generate-ideas`, {
         method: 'POST',
         headers: {
@@ -85,7 +85,7 @@ function App() {
     setAgentActivity(prev => [...prev, { agent: 'Research Agent', action: 'Conducting market research...', time: new Date().toLocaleTimeString() }]);
     
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://zmc-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/agents/research`, {
         method: 'POST',
         headers: {
@@ -133,7 +133,7 @@ function App() {
     setAgentActivity(prev => [...prev, { agent: 'Product Agent', action: 'Developing product concept...', time: new Date().toLocaleTimeString() }]);
     
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://zmc-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/agents/develop-product`, {
         method: 'POST',
         headers: {
@@ -192,7 +192,7 @@ function App() {
         time: new Date().toLocaleTimeString() 
       }]);
       
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://zmc-production.up.railway.app';
       const cmoResponse = await fetch(`${apiUrl}/api/agents/marketing-strategy`, {
         method: 'POST',
         headers: {
@@ -317,7 +317,7 @@ function App() {
     console.log('🔧 [FRONTEND] Starting Bolt prompt creation for product:', productData.product_name);
     
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://zmc-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/agents/bolt-prompt`, {
         method: 'POST',
         headers: {
@@ -387,7 +387,7 @@ function App() {
         time: new Date().toLocaleTimeString() 
       }]);
 
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://zmc-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/finance/complete-project`, {
         method: 'POST',
         headers: {
