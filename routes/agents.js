@@ -23,6 +23,14 @@ const headOfEngineeringAgent = new HeadOfEngineeringAgent(process.env.CLAUDE_API
 router.post('/generate-ideas', async (req, res) => {
   try {
     const { count = 3 } = req.body;
+    
+    // Test API key directly
+    console.log('🔑 [ROUTE] Testing API key directly...');
+    console.log('🔑 [ROUTE] API Key length:', process.env.CLAUDE_API_KEY?.length);
+    console.log('🔑 [ROUTE] API Key starts with sk-ant:', process.env.CLAUDE_API_KEY?.startsWith('sk-ant'));
+    console.log('🔑 [ROUTE] API Key first 20 chars:', process.env.CLAUDE_API_KEY?.substring(0, 20));
+    console.log('🔑 [ROUTE] API Key last 20 chars:', process.env.CLAUDE_API_KEY?.substring(-20));
+    
     const ideas = await ceoAgent.generateIdeas(count);
     
     // Use Promise.all to wait for all database operations
