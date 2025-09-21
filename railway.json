@@ -34,7 +34,7 @@
     {
       "name": "bolt-diy",
       "repo": "zmc",
-      "buildCommand": "cd bolt.diy-main && pnpm install",
+      "buildCommand": "cd bolt.diy-main && pnpm install --frozen-lockfile",
       "startCommand": "cd bolt.diy-main && pnpm dev",
       "rootDirectory": ".",
       "environmentVariables": {
