@@ -465,6 +465,23 @@ router.post('/bolt-prompt/:ideaId', async (req, res) => {
 // Test API key endpoint
 router.get('/test-api-key', (req, res) => {
   const apiKey = process.env.CLAUDE_API_KEY;
+  
+  // Log the API key details
+  console.log('🔑 [TEST] API Key exists:', !!apiKey);
+  console.log('🔑 [TEST] API Key length:', apiKey?.length || 0);
+  console.log('🔑 [TEST] API Key starts with sk-ant:', apiKey?.startsWith('sk-ant') || false);
+  console.log('🔑 [TEST] API Key first 20 chars:', apiKey?.substring(0, 20) || 'undefined');
+  console.log('🔑 [TEST] API Key last 20 chars:', apiKey?.substring(-20) || 'undefined');
+  
+  // Check for hidden characters
+  const hasNewlines = apiKey?.includes('\n') || apiKey?.includes('\r');
+  const hasSpaces = apiKey?.includes(' ');
+  const hasTabs = apiKey?.includes('\t');
+  
+  console.log('🔑 [TEST] Has newlines:', hasNewlines);
+  console.log('🔑 [TEST] Has spaces:', hasSpaces);
+  console.log('🔑 [TEST] Has tabs:', hasTabs);
+  
   res.json({
     success: true,
     apiKey: {
@@ -472,7 +489,10 @@ router.get('/test-api-key', (req, res) => {
       length: apiKey?.length || 0,
       startsWithSkAnt: apiKey?.startsWith('sk-ant') || false,
       first20Chars: apiKey?.substring(0, 20) || 'undefined',
-      last20Chars: apiKey?.substring(-20) || 'undefined'
+      last20Chars: apiKey?.substring(-20) || 'undefined',
+      hasNewlines: hasNewlines,
+      hasSpaces: hasSpaces,
+      hasTabs: hasTabs
     }
   });
 });
