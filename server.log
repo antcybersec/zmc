@@ -1,0 +1,16 @@
+Database initialized successfully
+✅ Web3 Service initialized successfully
+📍 Contract Address: 0x0471AaD869eBa890d63A2f276828879A9a375858
+👤 Wallet Address: 0xDdA038ab494C2585cA20abCeBA057cF1f5B52b18
+AI Company server running on port 5000
+Environment: development
+Error in CEO Agent: {
+  type: 'error',
+  error: { type: 'authentication_error', message: 'invalid x-api-key' },
+  request_id: 'req_011CTMzohv6hNgQPTH4Gz2nx'
+}
+Error generating ideas: Error: Claude API error: Request failed with status code 401
+    at CEOAgent.generateResponse (/Users/anantkumar/Documents/devanshucodes/avalanche-team1/agents/ClaudeAgent.js:33:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async CEOAgent.generateIdeas (/Users/anantkumar/Documents/devanshucodes/avalanche-team1/agents/CEOAgent.js:30:24)
+    at async /Users/anantkumar/Documents/devanshucodes/avalanche-team1/routes/agents.js:23:19
