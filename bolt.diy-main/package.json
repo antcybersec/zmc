@@ -12,11 +12,11 @@
   },
   "scripts": {
     "deploy": "npm run build && wrangler pages deploy",
-    "build": "remix vite:build",
+    "build": "npm exec remix vite:build",
     "build:railway": "node railway-build-v2.cjs",
     "build:vite": "vite build",
     "dev": "node pre-start.cjs && remix vite:dev",
-    "start": "node -e \"const { spawn } = require('child_process'); const isWindows = process.platform === 'win32'; const cmd = isWindows ? 'npm run start:windows' : 'npm run start:unix'; const child = spawn(cmd, { shell: true, stdio: 'inherit' }); child.on('exit', code => process.exit(code));\"",
+    "start": "node start-railway.cjs",
     "start:windows": "wrangler pages dev ./build/client",
     "start:unix": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings",
     "start:simple": "npx wrangler pages dev ./build/client --port 5173 --no-show-interactive-dev-session",
@@ -160,7 +160,9 @@
     "use-debounce": "^10.0.4",
     "vite-plugin-node-polyfills": "^0.22.0",
     "zod": "^3.24.1",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.3",
+    "serve": "^14.2.1",
+    "@remix-run/dev": "^2.15.2"
   },
   "devDependencies": {
     "@blitz/eslint-plugin": "0.1.0",
@@ -168,7 +170,6 @@
     "@electron/notarize": "^2.5.0",
     "@iconify-json/ph": "^1.2.1",
     "@iconify/types": "^2.0.0",
-    "@remix-run/dev": "^2.15.2",
     "@remix-run/serve": "^2.15.2",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
