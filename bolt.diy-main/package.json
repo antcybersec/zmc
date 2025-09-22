@@ -12,7 +12,7 @@
   },
   "scripts": {
     "deploy": "npm run build && wrangler pages deploy",
-    "build": "npm exec remix vite:build",
+    "build": "vite build",
     "build:railway": "node railway-build-v2.cjs",
     "build:vite": "vite build",
     "dev": "node pre-start.cjs && remix vite:dev",
@@ -195,7 +195,6 @@
     "is-ci": "^3.0.1",
     "jsdom": "^26.0.0",
     "node-fetch": "^3.3.2",
-    "pnpm": "^9.14.4",
     "prettier": "^3.5.3",
     "rimraf": "^4.4.1",
     "sass-embedded": "^1.81.0",
