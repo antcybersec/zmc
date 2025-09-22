@@ -438,13 +438,14 @@ function App() {
   // createBoltPrompt fallback function removed - using createBoltPromptWithData directly
 
   const getBoltUrl = () => {
-    const promptText = boltPrompt?.bolt_prompt ||
+    const rawPrompt = boltPrompt?.bolt_prompt ||
       'Build a modern, responsive website. Include homepage, features, pricing, about, contact pages.';
+    const promptText = typeof rawPrompt === 'string' ? rawPrompt : JSON.stringify(rawPrompt);
     const params = new URLSearchParams({
       prompt: promptText,
       autostart: '1',
     });
-    const boltBase = process.env.REACT_APP_BOLT_URL || 'http://localhost:5173';
+    const boltBase = (process.env.REACT_APP_BOLT_URL || 'http://localhost:5173').replace(/\/+$/, '');
     return `${boltBase}/?${params.toString()}`;
   };
 
