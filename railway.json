@@ -34,8 +34,8 @@
     {
       "name": "bolt-diy",
       "repo": "zmc",
-      "buildCommand": "cd bolt.diy-main && npm install -g pnpm && pnpm install --frozen-lockfile",
-      "startCommand": "cd bolt.diy-main && pnpm dev",
+      "buildCommand": "cd bolt.diy-main && npm install && npm run build",
+      "startCommand": "cd bolt.diy-main && npm run start",
       "rootDirectory": ".",
       "environmentVariables": {
         "NODE_ENV": "production",
