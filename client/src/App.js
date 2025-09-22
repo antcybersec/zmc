@@ -444,7 +444,8 @@ function App() {
       prompt: promptText,
       autostart: '1',
     });
-    return `http://localhost:5173/?${params.toString()}`;
+    const boltBase = process.env.REACT_APP_BOLT_URL || 'http://localhost:5173';
+    return `${boltBase}/?${params.toString()}`;
   };
 
   const openBoltNewTab = () => {
