@@ -28,11 +28,27 @@ Format your response as JSON with this structure:
 
     try {
       const response = await this.generateResponse(prompt, 2000);
-      const ideas = JSON.parse(response);
-      
-      await this.logActivity('Generated business ideas', { count: ideas.ideas?.length || 0 });
-      
-      return ideas.ideas || [];
+      let ideasObj;
+
+      try {
+        ideasObj = JSON.parse(response);
+      } catch {
+        // Attempt to extract JSON substring if model returned extra prose
+        const match = response.match(/\{[\s\S]*\}/);
+        if (match) {
+          try {
+            ideasObj = JSON.parse(match[0]);
+          } catch (e) {
+            console.error('Failed to parse extracted JSON from model response');
+            throw e;
+          }
+        } else {
+          throw new Error('Model response was not valid JSON');
+        }
+      }
+
+      await this.logActivity('Generated business ideas', { count: ideasObj.ideas?.length || 0 });
+      return ideasObj.ideas || [];
     } catch (error) {
       console.error('Error generating ideas:', error);
       return [];
