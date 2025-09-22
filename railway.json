@@ -34,7 +34,7 @@
     {
       "name": "bolt-diy",
       "repo": "zmc",
-      "buildCommand": "cd bolt.diy-main && node railway-build.cjs",
+      "buildCommand": "cd bolt.diy-main && node railway-build-final.cjs",
       "startCommand": "cd bolt.diy-main && npm run start:simple",
       "rootDirectory": ".",
       "environmentVariables": {
