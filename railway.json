@@ -35,7 +35,7 @@
       "name": "bolt-diy",
       "repo": "zmc",
       "buildCommand": "cd bolt.diy-main && npm install && npm run build",
-      "startCommand": "cd bolt.diy-main && npx wrangler pages dev ./build/client --port 5173 --no-show-interactive-dev-session",
+      "startCommand": "cd bolt.diy-main && node railway-start.js",
       "rootDirectory": ".",
       "environmentVariables": {
         "NODE_ENV": "production",
@@ -46,3 +46,4 @@
     }
   ]
 }
+
